@@ -1880,10 +1880,10 @@
 
             .nav-links {
                 position: fixed;
-                top: 82px;
+                top: 70px; /* exactly below navbar (10px top + 60px height) */
                 left: 12px;
                 right: 12px;
-                background: rgba(5, 5, 5, 0.97);
+                background: rgba(5, 5, 5, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 28px 20px;
@@ -1894,12 +1894,16 @@
                 border: 1px solid rgba(255, 255, 255, 0.02);
                 align-items: stretch;
                 text-align: center;
-                z-index: 1001; /* FIX: above navbar (z-index:1000) */
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+                z-index: 9999; /* way above everything */
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                pointer-events: none;
             }
 
             .nav-links.open {
                 transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
             }
 
             .nav-links .nav-cta {
